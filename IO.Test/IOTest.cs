@@ -1,4 +1,5 @@
 using InspiredSoftware.IO;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace IO.Test
 {
@@ -44,6 +45,20 @@ namespace IO.Test
             var compare1 = new FilePath(temp.ToLower());
             var compare2 = new FilePath(temp.ToUpper());
             Assert.IsTrue(compare1.Equals(compare2));
+        }
+
+        [TestMethod]
+        public void FilePathListTest()
+        {
+            var instance = new FilePath(TempFile);
+            Assert.IsNotNull(instance);
+
+            FilePath instance2 = (FilePath)TempFile;
+            Assert.IsNotNull(instance2);
+
+            FilePath instance3 = TempFile;
+            Assert.IsNotNull(instance3);
+
         }
 
         [TestInitialize]
