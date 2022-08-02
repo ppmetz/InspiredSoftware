@@ -4,7 +4,8 @@ the file path type behaves similiar like a string but it's ignoring upper and lo
 instance can be created due to implicit operator not only with the 'new' keyword, but with assignment operator.
 F.eg.:
 
-'''
+
+            string TempFile => System.IO.Path.GetTempFileName();
 
             var instance = new FilePath(TempFile);
             
@@ -12,4 +13,3 @@ F.eg.:
             
             FilePath instance3 = TempFile;
             
-'''
