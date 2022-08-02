@@ -5,11 +5,11 @@ instance can be created due to implicit operator not only with the 'new' keyword
 F.eg.:
 
 
-            string TempFile => System.IO.Path.GetTempFileName();
+            string tempFile = System.IO.Path.GettempFileName();
 
-            var instance = new FilePath(TempFile);
+            var instance = new FilePath(tempFile);
             
-            FilePath instance2 = (FilePath)TempFile;
+            FilePath instance2 = (FilePath)tempFile;
             
-            FilePath instance3 = TempFile;
+            FilePath instance3 = tempFile;
             
