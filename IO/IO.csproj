@@ -5,11 +5,29 @@
 		<Nullable>enable</Nullable>
 		<LangVersion>10</LangVersion>
 		<AssemblyName>InspiredSoftware.$(MSBuildProjectName)</AssemblyName>
-		<ProduceReferenceAssembly>True</ProduceReferenceAssembly>
 		<RootNamespace>InspiredSoftware.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
-		<VersionPrefix>0.9.0</VersionPrefix>
+		<VersionPrefix>0.9.1</VersionPrefix>
 		<Version>$(VersionPrefix)</Version>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageVersion>$(Version)</PackageVersion>
+		<PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+		<ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+		<Authors>ppmetz@hotmail.com</Authors>
+		<Copyright>PPMetz, 2022</Copyright>
+		<RequireLicenseAcceptance>True</RequireLicenseAcceptance>
+		<PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+		<PackageProjectUrl>https://github.com/ppmetz/InspiredSoftware</PackageProjectUrl>
+		<Description>
+			IO.FilePath skip upper or lower case difference
+			F.eg.: file path  C:\Temp\hallo.txt  equals  c:\temp\Hallo.TXT
+		</Description>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\LICENSE.md" Pack="true" PackagePath="" />
+	</ItemGroup>
 </Project>
