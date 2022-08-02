@@ -5,6 +5,7 @@ instance can be created due to implicit operator not only with the 'new' keyword
 F.eg.:
 
 '''
+
             var instance = new FilePath(TempFile);
             
             FilePath instance2 = (FilePath)TempFile;
