@@ -24,6 +24,7 @@ public class FilePath : ICloneable, IComparable<FilePath>, IEquatable<FilePath>,
     public override string ToString() => _FilePath;
 
     public static implicit operator FilePath(string filePath) => new(filePath);
+    public static implicit operator String(FilePath filePath) => filePath.ToString();
 
     public FilePath Combine(params string[] paths) =>
         System.IO.Path.Combine(paths.Prepend(_FilePath).ToArray());
