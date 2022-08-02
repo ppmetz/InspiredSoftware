@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 
-namespace InspiredSoftware.Path;
+namespace InspiredSoftware.IO;
 // inspired by "What I've learned from 20 years of programming in C#" with Joe Albahari
-public class FilePath : ICloneable, IComparable<FilePath>, IEquatable<FilePath>
+public class FilePath : ICloneable, IComparable<FilePath>, IEquatable<FilePath>, IFilePath
 {
     readonly string _FilePath;
 
@@ -33,7 +33,7 @@ public class FilePath : ICloneable, IComparable<FilePath>, IEquatable<FilePath>
 
     public object Clone() => new FilePath(_FilePath);
 
-    public int CompareTo(FilePath other) => (this.Equals(other)) 
+    public int CompareTo(FilePath other) => (this.Equals(other))
         ? 0
         : _FilePath.CompareTo(other.ToString());
 }
