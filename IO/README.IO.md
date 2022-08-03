@@ -6,10 +6,14 @@ F.eg.:
 
 
             string tempFile = System.IO.Path.GettempFileName();
-
+            
             var instance = new FilePath(tempFile);
             
             FilePath instance2 = (FilePath)tempFile;
             
+            string s2 = (string)instance2;
+            
             FilePath instance3 = tempFile;
+            
+            string s3 = instance3;
             
