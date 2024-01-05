@@ -1,16 +1,16 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<Nullable>enable</Nullable>
+		<LangVersion>10</LangVersion>
 		<AssemblyName>InspiredSoftware.$(MSBuildProjectName)</AssemblyName>
 		<RootNamespace>InspiredSoftware.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
-		<VersionPrefix>0.9.4</VersionPrefix>
+		<VersionPrefix>0.0.3</VersionPrefix>
 		<Version>$(VersionPrefix)</Version>
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.1;netstandard2.0</TargetFrameworks>
-		<Nullable>enable</Nullable>
-		<LangVersion>10</LangVersion>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageVersion>$(Version)</PackageVersion>
 		<PackageLicenseFile>LICENSE.md</PackageLicenseFile>
@@ -22,8 +22,30 @@
 		<PackageLicenseFile>LICENSE.md</PackageLicenseFile>
 		<PackageProjectUrl>https://github.com/ppmetz/InspiredSoftware</PackageProjectUrl>
 		<Description>
-			IO.FilePath skip upper or lower case difference
-			F.eg.: file path  C:\Temp\hallo.txt  equals  c:\temp\Hallo.TXT
+			Seek in (loaded) assemblies for public static properties that are marked with attribute
+			and assignes corresponding value from the appsettings.json
+
+			JSON
+
+			{
+				"Settings": {
+					"FavoriteNumber": 7,
+					"Child": {
+						"Name": "Example",
+						"GrandChild": {
+							"Age": 3
+						}
+					}
+				}
+			}
+			
+			CS
+			
+			public class MyClass {
+				[SettingsBinder(jpath: "Settings:FavoriteNumber"), optional: false)]
+				public static int FavoriteNumber { get; set; }
+			}
+			
 		</Description>
 	</PropertyGroup>
 

@@ -1,0 +1,37 @@
+﻿https://docs.microsoft.com/en-us/dotnet/standard/serialization/system-text-json-use-dom-utf8jsonreader-utf8jsonwriter?pivots=dotnet-6-0#json-dom-choices
+
+string jsonString = File.ReadAllText(inputFileName);
+
+var writerOptions = new JsonWriterOptions
+{
+    Indented = true
+};
+
+var documentOptions = new JsonDocumentOptions
+{
+    CommentHandling = JsonCommentHandling.Skip
+};
+
+using FileStream fs = File.Create(outputFileName);
+using var writer = new Utf8JsonWriter(fs, options: writerOptions);
+using JsonDocument document = JsonDocument.Parse(jsonString, documentOptions);
+
+JsonElement root = document.RootElement;
+
+if (root.ValueKind == JsonValueKind.Object)
+{
+    writer.WriteStartObject();
+}
+else
+{
+    return;
+}
+
+foreach (JsonProperty property in root.EnumerateObject())
+{
+    property.WriteTo(writer);
+}
+
+writer.WriteEndObject();
+
+writer.Flush();
